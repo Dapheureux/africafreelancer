@@ -9,6 +9,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { DollarSign, Clock, CheckCircle, XCircle } from "lucide-react"
 import Link from "next/link"
 import type { Payment, Contract } from "@/lib/types"
+import type { User } from "@supabase/supabase-js"
+
 
 interface PaymentWithContract extends Payment {
   contract: Contract & {
@@ -51,7 +53,9 @@ const getStatusColor = (status: string) => {
 export default function PaymentsPage() {
   const [payments, setPayments] = useState<PaymentWithContract[]>([])
   const [loading, setLoading] = useState(true)
-  const [user, setUser] = useState<any>(null)
+  // const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<User | null>(null)
+
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -152,7 +156,7 @@ export default function PaymentsPage() {
   )
 }
 
-function PaymentCard({ payment, user }: { payment: PaymentWithContract; user: any }) {
+function PaymentCard({ payment, user }: { payment: PaymentWithContract; user: User | null }) {
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
