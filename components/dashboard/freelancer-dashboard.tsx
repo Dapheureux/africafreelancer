@@ -196,7 +196,7 @@ export function FreelancerDashboard({ profile }: FreelancerDashboardProps) {
               <CardContent>
                 {myProposals.length === 0 ? (
                   <div className="text-center py-4">
-                    <p className="text-gray-500 mb-4">You haven't submitted any proposals yet</p>
+                    <p className="text-gray-500 mb-4">You haven&apos;t submitted any proposals yet</p>
                     <Link href="/projects/browse">
                       <Button variant="outline">Browse Projects</Button>
                     </Link>

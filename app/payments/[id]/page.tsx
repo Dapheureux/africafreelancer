@@ -9,6 +9,7 @@ import { ArrowLeft, DollarSign, Clock, CheckCircle, XCircle } from "lucide-react
 import Link from "next/link"
 import { useParams } from "next/navigation"
 import type { Payment, Transaction, Contract } from "@/lib/types"
+import type { User } from "@supabase/supabase-js"
 
 interface PaymentWithDetails extends Payment {
   contract: Contract & {
@@ -27,7 +28,8 @@ export default function PaymentDetailsPage() {
   const [payment, setPayment] = useState<PaymentWithDetails | null>(null)
   const [transactions, setTransactions] = useState<TransactionWithPayment[]>([])
   const [loading, setLoading] = useState(true)
-  const [user, setUser] = useState<any>(null)
+  // const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<User | null>(null)
 
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -131,7 +133,7 @@ export default function PaymentDetailsPage() {
     )
   }
 
-  const isClient = user?.id === payment.contract.client_id
+  // const isClient = user?.id === payment.contract.client_id
 
   return (
     <div className="container mx-auto px-4 py-8">
