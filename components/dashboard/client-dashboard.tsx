@@ -159,7 +159,7 @@ export function ClientDashboard({ profile }: ClientDashboardProps) {
             <CardContent>
               {projects.length === 0 ? (
                 <div className="text-center py-8">
-                  <p className="text-gray-500 mb-4">You haven't posted any projects yet</p>
+                  <p className="text-gray-500 mb-4">You haven&apos;t posted any projects yet</p>
                   <Link href="/projects/create">
                     <Button>
                       <Plus className="w-4 h-4 mr-2" />
