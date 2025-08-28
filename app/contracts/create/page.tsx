@@ -12,11 +12,11 @@ import { Textarea } from "@/components/ui/textarea"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
-import type { Proposal, Project } from "@/lib/types"
+import type { Proposal, Project, Profile } from "@/lib/types"
 
-interface ProposalWithDetails extends Proposal {
+interface ProposalWithDetails extends Omit<Proposal, "freelancer"> {
   project: Project
-  freelancer: { full_name: string; email: string }
+  freelancer: Pick<Profile, "full_name" | "email">
 }
 
 export default function CreateContractPage() {
