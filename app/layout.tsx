@@ -1,7 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
+import { GeistSans } from "next/font/google"
+import { Geist_Mono } from "next/font/google"
 import { LanguageProvider } from "@/contexts/language-context"
 import { ThemeProvider } from "@/contexts/theme-context"
 import "./globals.css"
@@ -17,7 +17,7 @@ const geistSans = GeistSans({
   subsets: ["latin"],
 })
 
-const geistMono = GeistMono({
+const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 })
